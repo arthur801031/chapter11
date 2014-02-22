@@ -1,0 +1,41 @@
+Script started on Mon Feb 17 22:00:38 2014
+bash-3.2$ rails c
+Loading development environment (Rails 4.0.2)
+2.0.0-p353 :001 > def string_shuffle(s)
+2.0.0-p353 :002?>   s.split()[D')[D')[D[C.shuffle.join
+2.0.0-p353 :003?>   end
+ => nil 
+2.0.0-p353 :004 > string_su[D[Khuffle()[D")[Df)[Do)[Do)[Db)[Da)[Dr)[D")[D[C
+ => "baoofr" 
+2.0.0-p353 :005 > class String
+2.0.0-p353 :006?>   def shuffle
+2.0.0-p353 :007?>     self.split()[D')[D')[D[C.shuffle.join
+2.0.0-p353 :008?>     end
+2.0.0-p353 :009?>   end
+ => nil 
+2.0.0-p353 :010 > "foobar".shuffle
+ => "frboao" 
+2.0.0-p353 :011 > params = {}
+ => {} 
+2.0.0-p353 :012 > params[][D:][Df][Da][Dt][Dh][De][Dr][D[C = { first:""[Dp"[De"[Dr"[Ds"[Do"[Dn"[D1"[D[D[D[D[D[D[D[D[D "person1"[D[D[D[D[D[D[D[D[D[C[C[C[C[C[C[C[C[C, last: "person1Last" }
+ => {:first=>"person1", :last=>"person1Last"} 
+2.0.0-p353 :013 > params [D[K[:mother] = { first: ""[Dp"[De"[Dr"[Ds"[Do"[Dn"[D2"[D[C[D[C, last: "person2Last" }
+ => {:first=>"person2", :last=>"person2Last"} 
+2.0.0-p353 :014 > params [D[K[:child] = { first: "person3", last: "person3Last" }
+ => {:first=>"person3", :last=>"person3Last"} 
+2.0.0-p353 :015 > params [D[K[:father][:first}[D[K]
+ => "person1" 
+2.0.0-p353 :016 > params[:mother}[D[K][:first]
+ => "person2" 
+2.0.0-p353 :017 > params[:child][f[D[K:first]
+ => "person3" 
+2.0.0-p353 :018 > params[:father][:last}[D[K[[D[K]
+ => "person1Last" 
+2.0.0-p353 :019 > params[][D:][Dm][Do][Dt][Dh][De][Dr][D[C[:last]
+ => "person2Last" 
+2.0.0-p353 :020 > paramsp[D[K[L[D[K:child][:last]
+ => "person3Last" 
+2.0.0-p353 :021 > 
+bash-3.2$ exit
+
+Script done on Mon Feb 17 22:07:19 2014
