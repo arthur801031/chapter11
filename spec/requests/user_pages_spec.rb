@@ -22,6 +22,20 @@ describe "User pages" do
       it "should not create a user" do
         expect { click_button submit }.not_to change(User, :count)
       end
+
+      describe "after submission" do
+          before { click_button submit }
+
+          it { should have_title('Sign up') }
+          it { should have_content('error') }
+          it { should have_content('Password can\'t be blank')}
+          it { should have_content('Password can\'t be blank')}
+          it { should have_content('Password is too short (minimum is 6 characters)') }
+          it { should have_content('Name can\'t be blank') }
+          it { should have_content('Email can\'t be blank') }
+          it { should have_content('Email is invalid') }
+
+      end
     end
 
     describe "with valid information" do
