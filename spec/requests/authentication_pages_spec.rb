@@ -27,10 +27,7 @@ describe "signin" do
         it { should have_link('Sign in') }
       end
 
-      it { should have_title(user.name) }
-      it { should have_link('Profile',     href: user_path(user)) }
-      it { should have_link('Sign out',    href: signout_path) }
-      it { should_not have_link('Sign in', href: signin_path) }
+      check_links_title()
     end
   end
 end
