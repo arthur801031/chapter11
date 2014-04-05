@@ -56,7 +56,6 @@ describe "signin" do
           end
         end
       end
-
       describe "in the Users controller" do
 
         describe "visiting the edit page" do
@@ -70,7 +69,6 @@ describe "signin" do
         end
       end
     end
-
     describe "as wrong user" do
         let(:user) { FactoryGirl.create(:user) }
         let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
@@ -86,7 +84,7 @@ describe "signin" do
           before { patch user_path(wrong_user) }
           specify { expect(response).to redirect_to(root_url) }
         end
-    end
+      end
   end
 end
 
