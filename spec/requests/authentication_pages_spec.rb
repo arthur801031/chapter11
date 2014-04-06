@@ -89,6 +89,16 @@ describe "signin" do
           it { should have_title('Sign in') }
         end
       end
+      describe "creates an admin user and" do
+            let(:user){FactoryGirl.create(:user)}
+            let(:admin){FactoryGirl.create(:admin)}
+
+            before{ sign_in admin, no_capybara: true  }
+
+            it "should not be able to delete himself" do
+                expect { delete user_path(user) }.to change(User, :count).by(0)
+            end
+      end
     end
     describe "as wrong user" do
         let(:user) { FactoryGirl.create(:user) }
