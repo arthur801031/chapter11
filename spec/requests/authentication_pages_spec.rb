@@ -61,10 +61,7 @@ describe "signin" do
         describe "when signing in again" do
             before do
               click_link "Sign out"
-              visit signin_path
-              fill_in "Email",    with: user.email
-              fill_in "Password", with: user.password
-              click_button "Sign in"
+              sign_in user
             end
 
             it "should render the default (profile) page" do
