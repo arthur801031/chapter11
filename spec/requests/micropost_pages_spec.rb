@@ -10,6 +10,20 @@ describe "Micropost pages" do
   describe "micropost creation" do
     before { visit root_path }
 
+    describe "signed in other user" do
+      let(:first_user) { FactoryGirl.create(:user) }
+      let(:second_user) { FactoryGirl.create(:user) }
+      before do
+        sign_in second_user
+        visit user_path(first_user)
+      end
+
+      describe "not have delete links" do
+        it { should_not have_link('delete') }
+      end
+    end
+
+
     describe "pagination" do
       it "should paginate the feed" do
         31.times { FactoryGirl.create(:micropost, user: user, content: "Consectetur adipiscing elit") }
