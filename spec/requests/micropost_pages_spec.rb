@@ -10,6 +10,18 @@ describe "Micropost pages" do
   describe "micropost creation" do
     before { visit root_path }
 
+    describe "sidebar micropost count" do
+      it "has counts for micropost" do
+        expect { current_user.microposts.count }
+      end
+    end
+
+    describe "sidebard micropost's word" do
+      it "to be pluralized" do
+        expect { pluralize(current_user.microposts.count, "micropost") }
+      end
+    end
+
     describe "with invalid information" do
 
       it "should not create a micropost" do
