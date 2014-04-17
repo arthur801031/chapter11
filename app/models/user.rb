@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
+  
+  def feed
+    # This is preliminary. See "Following users" for the full implementation.
+    Micropost.where("user_id = ?", id)
+  end
 
   def User.hash(token)
     Digest::SHA1.hexdigest(token.to_s)
