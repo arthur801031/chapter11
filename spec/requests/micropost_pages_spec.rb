@@ -10,6 +10,14 @@ describe "Micropost pages" do
   describe "micropost creation" do
     before { visit root_path }
 
+    describe "pagination" do
+      it "should paginate the feed" do
+        31.times { FactoryGirl.create(:micropost, user: user, content: "Consectetur adipiscing elit") }
+        visit root_path
+        page.should have_selector("div.pagination")
+      end
+    end
+
     describe "sidebar micropost count" do
       it "has counts for micropost" do
         expect { current_user.microposts.count }
