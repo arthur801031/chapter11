@@ -83,6 +83,7 @@ describe "signin" do
             end
         end
       end
+      
       describe "in the Users controller" do
 
         describe "visiting the edit page" do
@@ -99,7 +100,18 @@ describe "signin" do
           before { visit users_path }
           it { should have_title('Sign in') }
         end
+
+        describe "visiting the following page" do
+          before { visit following_user_path(user) }
+          it { should have_title('Sign in') }
+        end
+
+        describe "visiting the followers page" do
+          before { visit followers_user_path(user) }
+          it { should have_title('Sign in') }
+        end
       end
+
       describe "creates an admin user and" do
             let(:user){FactoryGirl.create(:user)}
             let(:admin){FactoryGirl.create(:admin)}
