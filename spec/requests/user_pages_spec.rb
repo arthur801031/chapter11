@@ -60,6 +60,26 @@ describe "User pages" do
     it { should have_content(user.name) }
     it { should have_title(user.name) }
 
+    describe "for signed-in users" do
+      before do
+        FactoryGirl.create(:micropost, user: user, content: "Lorem")
+        FactoryGirl.create(:micropost, user: user, content: "Ipsum")
+        sign_in user
+        visit root_path
+      end
+
+      describe "follower/following counts" do
+          let(:other_user) { FactoryGirl.create(:user) }
+          before do
+            other_user.follow!(user)
+            visit root_path
+          end
+
+          it { should have_link("0 following", href: following_user_path(user)) }
+          it { should have_link("1 followers", href: followers_user_path(user)) }
+      end
+    end
+
     describe "follow/unfollow buttons" do
       let(:other_user) { FactoryGirl.create(:user) }
       before { sign_in user }
